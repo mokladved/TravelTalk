@@ -55,5 +55,12 @@ final class TravelCollectionViewCell: UICollectionViewCell {
         dateLabel.font = .systemFont(ofSize: 13)
     }
     
+    func configureData(imageName: String, name: String, message: String, date: String ) {
+        profileImageView.image = UIImage(named: imageName)
+        nameLabel.text = name
+        messageLabel.text = message
+        dateLabel.text = date
+    }
+    
     
 }

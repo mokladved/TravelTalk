@@ -19,9 +19,9 @@ struct Chat {
         guard let date = originalFormatter.date(from: date) else {
             return ""
         }
-        
         let convertingFormmater = DateFormatter()
         convertingFormmater.dateFormat = "yy.MM.dd"
+        
         return convertingFormmater.string(from: date)
 
     }

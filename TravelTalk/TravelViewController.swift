@@ -29,6 +29,15 @@
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = travelCollectionView.dequeueReusableCell(withReuseIdentifier: TravelCollectionViewCell.identifier, for: indexPath) as! TravelCollectionViewCell
             
+            let chat = chatLists[indexPath.item]
+            let chatroomImage = chat.chatroomImage
+            let lastChatUser = chat.chatList[chat.chatList.count - 1].user.name
+            let lastChatMessage = chat.chatList[chat.chatList.count - 1].message
+            let lastChatDate = chat.chatList[chat.chatList.count - 1].formattedDate
+            
+            cell.configureData(imageName: chatroomImage, name: lastChatUser, message: lastChatMessage, date: lastChatDate)
+            
+            
             return cell
         }
         
@@ -50,6 +59,5 @@
 
             return layout
         }
-
         
     }
