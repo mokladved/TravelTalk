@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TravelCollectionViewCell: UICollectionViewCell {
+final class TravelCollectionViewCell: UICollectionViewCell {
     static let identifier = "TravelCollectionViewCell"
 
     @IBOutlet var profileImageView: UIImageView!
@@ -29,31 +29,33 @@ class TravelCollectionViewCell: UICollectionViewCell {
     }
     
     
-    func configureUI() {
+    private func configureUI() {
         configureNameLabelUI()
         configureDateLabelUI()
         configureMessasgeLabelUI()
     }
     
     
-    func configureNameLabelUI() {
+    private func configureNameLabelUI() {
         nameLabel.font = .boldSystemFont(ofSize: 13)
     }
     
-    func configureMessasgeLabelUI() {
+    private func configureMessasgeLabelUI() {
         messageLabel.font = .systemFont(ofSize: 13)
         messageLabel.textColor = UIColor.grayForegroundColor
         
     }
     
     
-    func configureProfileImageVeiwUI() {
+    private func configureProfileImageVeiwUI() {
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
         profileImageView.clipsToBounds = true
     }
     
-    func configureDateLabelUI() {
+    private func configureDateLabelUI() {
         dateLabel.textColor = UIColor.grayForegroundColor
         dateLabel.font = .systemFont(ofSize: 13)
     }
+    
+    
 }
