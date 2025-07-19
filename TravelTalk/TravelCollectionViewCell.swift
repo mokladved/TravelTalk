@@ -35,7 +35,6 @@ final class TravelCollectionViewCell: UICollectionViewCell {
         configureMessasgeLabelUI()
     }
     
-    
     private func configureNameLabelUI() {
         nameLabel.font = .boldSystemFont(ofSize: 13)
     }
@@ -43,7 +42,6 @@ final class TravelCollectionViewCell: UICollectionViewCell {
     private func configureMessasgeLabelUI() {
         messageLabel.font = .systemFont(ofSize: 13)
         messageLabel.textColor = UIColor.grayForegroundColor
-        
     }
     
     

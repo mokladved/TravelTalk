@@ -16,16 +16,8 @@
             registerCell()
             travelCollectionView.delegate = self
             travelCollectionView.dataSource = self
-            
-
+            travelCollectionView.collectionViewLayout = configureCollectionViewUI()
         }
-        
-        private func registerCell() {
-            let xib = UINib(nibName: TravelCollectionViewCell.identifier, bundle: nil)
-            travelCollectionView.register(xib, forCellWithReuseIdentifier: TravelCollectionViewCell.identifier)
-            
-        }
-
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             return 10
@@ -36,5 +28,25 @@
             
             return cell
         }
+        
+        private func registerCell() {
+            let xib = UINib(nibName: TravelCollectionViewCell.identifier, bundle: nil)
+            travelCollectionView.register(xib, forCellWithReuseIdentifier: TravelCollectionViewCell.identifier)
+        }
+        
+        private func configureCollectionViewUI() -> UICollectionViewFlowLayout {
+            let layout = UICollectionViewFlowLayout()
+            let cellWidth = VCConstants.cellWidth()
+            let cellHeight = VCConstants.cellHeight
+            let spacing = VCConstants.spacing
+            layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
+            layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+            layout.minimumLineSpacing = spacing
+            layout.minimumInteritemSpacing = 0
+            layout.scrollDirection = .vertical
+
+            return layout
+        }
+
         
     }
