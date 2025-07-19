@@ -11,4 +11,18 @@ struct Chat {
     let user: User
     let date: String
     let message: String
+    
+    var formattedDate: String {
+        let originalFormatter = DateFormatter()
+        originalFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
+        guard let date = originalFormatter.date(from: date) else {
+            return ""
+        }
+        
+        let convertingFormmater = DateFormatter()
+        convertingFormmater.dateFormat = "yy.MM.dd"
+        return convertingFormmater.string(from: date)
+
+    }
 }
