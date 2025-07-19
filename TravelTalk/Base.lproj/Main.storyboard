@@ -17,9 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Loi-ca-Oy3">
-                                <rect key="frame" x="0.0" y="118" width="393" height="734"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Loi-ca-Oy3">
+                                <rect key="frame" x="16" y="243" width="361" height="609"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZH1-u8-wsq">
                                     <size key="itemSize" width="128" height="128"/>
@@ -27,30 +26,65 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <view key="backgroundView" contentMode="scaleToFill" id="wi9-pd-QA7">
+                                    <rect key="frame" x="0.0" y="0.0" width="361" height="609"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zmN-bm-9PU">
-                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5GC-Ry-Np7">
-                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E66-Pr-6Rw">
+                                <rect key="frame" x="0.0" y="230" width="393" height="1"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="jmz-M6-9dj"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qFZ-la-18t">
+                                <rect key="frame" x="16" y="174" width="361" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="vqh-6N-rYo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="E66-Pr-6Rw" firstAttribute="top" secondItem="qFZ-la-18t" secondAttribute="bottom" constant="12" id="5Ue-IC-9ZK"/>
+                            <constraint firstItem="E66-Pr-6Rw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Fpt-tz-yXF"/>
+                            <constraint firstAttribute="bottom" secondItem="Loi-ca-Oy3" secondAttribute="bottom" id="ZtZ-4k-0nE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="E66-Pr-6Rw" secondAttribute="trailing" id="a4F-Yv-QY4"/>
+                            <constraint firstItem="Loi-ca-Oy3" firstAttribute="leading" secondItem="qFZ-la-18t" secondAttribute="leading" id="kGJ-Sv-GgG"/>
+                            <constraint firstItem="qFZ-la-18t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="mRP-CV-0AT"/>
+                            <constraint firstItem="Loi-ca-Oy3" firstAttribute="trailing" secondItem="qFZ-la-18t" secondAttribute="trailing" id="olf-Ih-gS7"/>
+                            <constraint firstItem="Loi-ca-Oy3" firstAttribute="top" secondItem="E66-Pr-6Rw" secondAttribute="bottom" constant="12" id="ppn-nK-AIL"/>
+                            <constraint firstItem="qFZ-la-18t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="qaU-W9-Hjf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qFZ-la-18t" secondAttribute="trailing" constant="16" id="u0O-Y7-wAA"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="mop-fb-qoD"/>
-                    <navigationItem key="navigationItem" id="sGY-5K-T76"/>
+                    <navigationItem key="navigationItem" id="sGY-5K-T76">
+                        <nil key="title"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="lineView" destination="E66-Pr-6Rw" id="K1O-Gk-3cV"/>
                         <outlet property="travelCollectionView" destination="Loi-ca-Oy3" id="GT7-3F-7F6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366" y="241"/>
+            <point key="canvasLocation" x="365.64885496183206" y="240.84507042253523"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3J5-tu-LID">

@@ -11,6 +11,7 @@
 
         private let chatLists = ChatList.list
         
+        @IBOutlet var lineView: UIView!
         
         @IBOutlet var travelCollectionView: UICollectionView!
         
@@ -20,6 +21,8 @@
             travelCollectionView.delegate = self
             travelCollectionView.dataSource = self
             travelCollectionView.collectionViewLayout = configureCollectionViewUI()
+            configureNavTitleUI()
+            configureLineViewUI()
         }
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -60,4 +63,11 @@
             return layout
         }
         
+        private func configureNavTitleUI() {
+            navigationItem.title = "TRAVEL TALK"
+        }
+        
+        private func configureLineViewUI() {
+            lineView.backgroundColor = UIColor.lightGrayForegroundColor
+        }
     }
