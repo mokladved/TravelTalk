@@ -59,7 +59,13 @@
                 <constraint firstItem="15N-d1-rui" firstAttribute="firstBaseline" secondItem="VCO-pd-45P" secondAttribute="firstBaseline" id="wBn-Zx-gy7"/>
             </constraints>
             <size key="customSize" width="185" height="50"/>
-            <point key="canvasLocation" x="158.01526717557252" y="9.8591549295774659"/>
+            <connections>
+                <outlet property="dateLabel" destination="15N-d1-rui" id="kI3-fB-JEH"/>
+                <outlet property="messageLabel" destination="ZAo-kw-0YB" id="5kC-4I-Xtw"/>
+                <outlet property="nameLabel" destination="VCO-pd-45P" id="ISS-Zb-pjl"/>
+                <outlet property="profileImageView" destination="ICd-f2-aN8" id="Ois-p9-n6Q"/>
+            </connections>
+            <point key="canvasLocation" x="92" y="-113"/>
         </collectionViewCell>
     </objects>
 </document>
