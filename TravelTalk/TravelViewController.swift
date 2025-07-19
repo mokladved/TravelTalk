@@ -9,6 +9,9 @@
 
     final class TravelViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+        private let chatLists = ChatList.list
+        
+        
         @IBOutlet var travelCollectionView: UICollectionView!
         
         override func viewDidLoad() {
@@ -20,7 +23,7 @@
         }
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return 10
+            return chatLists.count
         }
         
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
