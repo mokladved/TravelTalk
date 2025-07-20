@@ -19,10 +19,25 @@ struct Chat {
         guard let date = originalFormatter.date(from: date) else {
             return ""
         }
-        let convertingFormmater = DateFormatter()
-        convertingFormmater.dateFormat = "yy.MM.dd"
+        let convertingFormatter = DateFormatter()
+        convertingFormatter.dateFormat = "yy.MM.dd"
         
-        return convertingFormmater.string(from: date)
+        return convertingFormatter.string(from: date)
 
+    }
+    
+    var formattedTime: String {
+        let originalFormatter = DateFormatter()
+        originalFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
+        guard let date = originalFormatter.date(from: date) else {
+            return ""
+        }
+        
+        let convertingFormatter = DateFormatter()
+        convertingFormatter.dateFormat = "hh:mm a"
+        convertingFormatter.locale = Locale(identifier: "ko_KR")
+
+        return convertingFormatter.string(from: date)
     }
 }
