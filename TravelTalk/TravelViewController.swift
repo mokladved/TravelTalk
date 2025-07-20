@@ -31,6 +31,7 @@
             configureSearchButtonUI()
             configureSearchTextFieldUI()
             configureImageWrappedTextFieldUI()
+            configureBackButtonTitle()
         }
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -112,5 +113,9 @@
                 
             chatVC.chatRoom = chatRoom
             navigationController?.pushViewController(chatVC, animated: true)
+        }
+        
+        private func configureBackButtonTitle() {
+            navigationItem.backButtonTitle = ""
         }
     }

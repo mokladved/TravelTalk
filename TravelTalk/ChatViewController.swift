@@ -22,7 +22,6 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
         chatTableView.dataSource = self
         registerCell()
         chatTableView.rowHeight = 100
-
     }
 
 
@@ -57,9 +56,4 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
             return cell
         }
     }
-    
-        
-    
-
-
 }
