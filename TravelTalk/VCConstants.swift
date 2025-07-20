@@ -8,7 +8,7 @@
 import UIKit
 
 struct VCConstants {
-    static let cellHeight: CGFloat = 100
+    static let cellHeight: CGFloat = 70
     static let spacing: CGFloat = 16
     static let columns: CGFloat = 1
     static func cellWidth() -> CGFloat {
