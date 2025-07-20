@@ -49,28 +49,49 @@
                                     <constraint firstAttribute="height" constant="1" id="jmz-M6-9dj"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qFZ-la-18t">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ce1-Qb-d7A">
                                 <rect key="frame" x="16" y="174" width="361" height="44"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qFZ-la-18t">
+                                        <rect key="frame" x="44" y="8" width="309" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8z-IT-P1V">
+                                        <rect key="frame" x="8" y="8" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="O8z-IT-P1V" secondAttribute="height" multiplier="1:1" id="ocd-zh-tWK"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="vqh-6N-rYo"/>
+                                    <constraint firstAttribute="trailing" secondItem="qFZ-la-18t" secondAttribute="trailing" constant="8" id="Do0-W5-Efv"/>
+                                    <constraint firstItem="O8z-IT-P1V" firstAttribute="top" secondItem="Ce1-Qb-d7A" secondAttribute="top" constant="8" id="SxA-6T-abc"/>
+                                    <constraint firstAttribute="bottom" secondItem="O8z-IT-P1V" secondAttribute="bottom" constant="8" id="W3Q-dy-fFL"/>
+                                    <constraint firstItem="O8z-IT-P1V" firstAttribute="leading" secondItem="Ce1-Qb-d7A" secondAttribute="leading" constant="8" id="a8m-Gp-WEF"/>
+                                    <constraint firstItem="qFZ-la-18t" firstAttribute="leading" secondItem="O8z-IT-P1V" secondAttribute="trailing" constant="8" id="bBr-DQ-EaY"/>
+                                    <constraint firstAttribute="bottom" secondItem="qFZ-la-18t" secondAttribute="bottom" constant="8" id="cNb-G4-tGk"/>
+                                    <constraint firstAttribute="height" constant="44" id="n8L-12-kwT"/>
+                                    <constraint firstItem="qFZ-la-18t" firstAttribute="top" secondItem="Ce1-Qb-d7A" secondAttribute="top" constant="8" id="sgR-X2-av0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="E66-Pr-6Rw" firstAttribute="top" secondItem="qFZ-la-18t" secondAttribute="bottom" constant="12" id="5Ue-IC-9ZK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ce1-Qb-d7A" secondAttribute="trailing" constant="16" id="2Zz-sP-HR1"/>
                             <constraint firstItem="E66-Pr-6Rw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Fpt-tz-yXF"/>
+                            <constraint firstItem="Loi-ca-Oy3" firstAttribute="leading" secondItem="Ce1-Qb-d7A" secondAttribute="leading" id="TLr-5t-Eb3"/>
+                            <constraint firstItem="Ce1-Qb-d7A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Z71-BF-N7n"/>
                             <constraint firstAttribute="bottom" secondItem="Loi-ca-Oy3" secondAttribute="bottom" id="ZtZ-4k-0nE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="E66-Pr-6Rw" secondAttribute="trailing" id="a4F-Yv-QY4"/>
-                            <constraint firstItem="Loi-ca-Oy3" firstAttribute="leading" secondItem="qFZ-la-18t" secondAttribute="leading" id="kGJ-Sv-GgG"/>
-                            <constraint firstItem="qFZ-la-18t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="mRP-CV-0AT"/>
-                            <constraint firstItem="Loi-ca-Oy3" firstAttribute="trailing" secondItem="qFZ-la-18t" secondAttribute="trailing" id="olf-Ih-gS7"/>
                             <constraint firstItem="Loi-ca-Oy3" firstAttribute="top" secondItem="E66-Pr-6Rw" secondAttribute="bottom" constant="12" id="ppn-nK-AIL"/>
-                            <constraint firstItem="qFZ-la-18t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="qaU-W9-Hjf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qFZ-la-18t" secondAttribute="trailing" constant="16" id="u0O-Y7-wAA"/>
+                            <constraint firstItem="E66-Pr-6Rw" firstAttribute="top" secondItem="Ce1-Qb-d7A" secondAttribute="bottom" constant="12" id="rMJ-5w-p9N"/>
+                            <constraint firstItem="Ce1-Qb-d7A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="snV-UK-Ye9"/>
+                            <constraint firstItem="Loi-ca-Oy3" firstAttribute="trailing" secondItem="Ce1-Qb-d7A" secondAttribute="trailing" id="tJ0-MC-nS3"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="mop-fb-qoD"/>
@@ -79,7 +100,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="lineView" destination="E66-Pr-6Rw" id="K1O-Gk-3cV"/>
+                        <outlet property="searchButton" destination="O8z-IT-P1V" id="t1H-PM-c1T"/>
+                        <outlet property="searchTextField" destination="qFZ-la-18t" id="E8W-ZX-xj2"/>
                         <outlet property="travelCollectionView" destination="Loi-ca-Oy3" id="GT7-3F-7F6"/>
+                        <outlet property="viewWrappedTextField" destination="Ce1-Qb-d7A" id="Zfo-Ov-IcV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

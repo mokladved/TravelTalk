@@ -8,11 +8,16 @@
     import UIKit
 
     final class TravelViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+        
         private let chatLists = ChatList.list
         
+        @IBOutlet var viewWrappedTextField: UIView!
+        
+        
+        @IBOutlet var searchButton: UIButton!
         @IBOutlet var lineView: UIView!
         
+        @IBOutlet var searchTextField: UITextField!
         @IBOutlet var travelCollectionView: UICollectionView!
         
         override func viewDidLoad() {
@@ -23,6 +28,9 @@
             travelCollectionView.collectionViewLayout = configureCollectionViewUI()
             configureNavTitleUI()
             configureLineViewUI()
+            configureSearchButtonUI()
+            configureSearchTextFieldUI()
+            configureImageWrappedTextFieldUI()
         }
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -71,5 +79,28 @@
         
         private func configureLineViewUI() {
             lineView.backgroundColor = UIColor.lightGrayForegroundColor
+        }
+        
+        private func configureSearchTextFieldUI() {
+            let placeholder = "친구 이름을 검색해 보세요."
+            let attributes: [NSAttributedString.Key: Any] = [
+                .foregroundColor: UIColor.darkGrayForegroundColor,
+            ]
+            searchTextField.attributedPlaceholder = NSAttributedString(
+                        string: placeholder, attributes: attributes
+            )
+            searchTextField.backgroundColor =  .clear
+            searchTextField.borderStyle = . none
+        }
+        
+        private func configureSearchButtonUI() {
+            searchButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+            searchButton.tintColor = .darkGrayForegroundColor
+        }
+        
+        private func configureImageWrappedTextFieldUI() {
+            viewWrappedTextField.backgroundColor = UIColor.lightGrayBackgroundColor
+            viewWrappedTextField.layer.cornerRadius = 10
+            viewWrappedTextField.clipsToBounds = true
         }
     }
