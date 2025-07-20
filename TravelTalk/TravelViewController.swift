@@ -29,6 +29,8 @@
             return chatLists.count
         }
         
+        
+        // TODO: 마지막 채팅 선택 리팩토링
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = travelCollectionView.dequeueReusableCell(withReuseIdentifier: TravelCollectionViewCell.identifier, for: indexPath) as! TravelCollectionViewCell
             
