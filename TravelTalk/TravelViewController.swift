@@ -103,4 +103,14 @@
             viewWrappedTextField.layer.cornerRadius = 10
             viewWrappedTextField.clipsToBounds = true
         }
+        
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let chatRoom = ChatList.list[indexPath.item]
+                
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let chatVC = storyboard.instantiateViewController(withIdentifier: ChatViewController.identifier) as! ChatViewController
+                
+            chatVC.chatRoom = chatRoom
+            navigationController?.pushViewController(chatVC, animated: true)
+        }
     }
