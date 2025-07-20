@@ -19,19 +19,31 @@ class MyChatTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         configureViewWrappedMesageLabelUI()
+        configureMessageLabelUI()
+        configureDateLabelUI()
         
     }
     
     func configure(from data: Chat) {
         dateLabel.text = data.formattedTime
         messageLabel.text = data.message
-        
     }
     
     private func configureViewWrappedMesageLabelUI() {
-        viewWrappedMessageLabel.layer.cornerRadius = 5
+        viewWrappedMessageLabel.layer.cornerRadius = 10
         viewWrappedMessageLabel.clipsToBounds = true
         viewWrappedMessageLabel.layer.borderWidth = 1
         viewWrappedMessageLabel.layer.borderColor = UIColor.darkGrayLineColor.cgColor
+        viewWrappedMessageLabel.backgroundColor = .grayBackgroundColor
+    }
+    
+    private func configureMessageLabelUI() {
+        messageLabel.font = .systemFont(ofSize: 13)
+        messageLabel.numberOfLines = 0
+    }
+    
+    private func configureDateLabelUI() {
+        dateLabel.font = .systemFont(ofSize: 11)
+        dateLabel.textColor = .darkGrayForegroundColor
     }
 }

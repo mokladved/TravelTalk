@@ -11,8 +11,11 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
     
     static let identifier = "ChatViewController"
 
+    @IBOutlet var enterBUTTON: UIButton!
     @IBOutlet private var chatTableView: UITableView!
     
+    @IBOutlet var viewWrappedMessageTextField: UIView!
+    @IBOutlet var messageTextField: UITextField!
     var chatRoom: ChatRoom?
     
     
@@ -22,6 +25,11 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
         chatTableView.dataSource = self
         registerCell()
         chatTableView.rowHeight = 100
+        configureTableViewUI()
+        configureNavbarUI()
+        configureViewWrappedMessageTextFieldUI()
+        configureMessageTextFieldUI()
+        configureEnterButtonUI()
     }
 
 
@@ -55,5 +63,40 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.configure(from: chat)
             return cell
         }
+    }
+    
+    private func configureTableViewUI() {
+        chatTableView.separatorStyle = .none
+        chatTableView.allowsSelection = false
+    }
+    
+    private func configureNavbarUI() {
+        navigationItem.title = chatRoom?.chatroomName
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .white
+        appearance.shadowColor = .grayForegroundColor
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
+    
+    private func configureViewWrappedMessageTextFieldUI() {
+        viewWrappedMessageTextField.backgroundColor = .lightGrayBackgroundColor
+        viewWrappedMessageTextField.layer.cornerRadius = 5
+        viewWrappedMessageTextField.clipsToBounds = true
+        
+    }
+    
+    private func configureMessageTextFieldUI() {
+        let placeholder = "메시지를 입력하세요"
+        let attribute: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.grayForegroundColor ]
+        
+        messageTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: attribute)
+        messageTextField.backgroundColor = .clear
+        messageTextField.borderStyle = .none
+    }
+    
+    private func configureEnterButtonUI() {
+        enterBUTTON.configuration = .travelStyle(image: UIImage(systemName: "paperplane"))
     }
 }
