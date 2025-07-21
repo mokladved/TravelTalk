@@ -56,6 +56,9 @@
                                         <rect key="frame" x="44" y="8" width="309" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="textFieldDidEndOnExit:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="XGX-1z-ZPg"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8z-IT-P1V">
                                         <rect key="frame" x="8" y="8" width="28" height="28"/>
@@ -138,6 +141,9 @@
                                         <rect key="frame" x="8" y="8" width="345" height="46"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="textFieldDidEndOnExit:" destination="FAc-1h-v9t" eventType="editingDidEndOnExit" id="0gs-Ct-48C"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQl-d2-Z1F">
                                         <rect key="frame" x="315" y="16" width="30" height="30"/>

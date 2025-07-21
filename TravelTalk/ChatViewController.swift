@@ -103,6 +103,8 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func keyboardDismiss(_ sender: UITapGestureRecognizer) {
     }
     
+    @IBAction func textFieldDidEndOnExit(_ sender: UITextField) {
+    }
     
     
 }
