@@ -11,10 +11,10 @@ class MyChatTableViewCell: UITableViewCell {
 
     static let identifier = "MyChatTableViewCell"
     
-    @IBOutlet var viewWrappedMessageLabel: UIView!
+    @IBOutlet private var viewWrappedMessageLabel: UIView!
     
-    @IBOutlet var messageLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet private var messageLabel: UILabel!
+    @IBOutlet private var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

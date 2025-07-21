@@ -11,11 +11,11 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
     
     static let identifier = "ChatViewController"
 
-    @IBOutlet var enterBUTTON: UIButton!
+    @IBOutlet private var enterBUTTON: UIButton!
     @IBOutlet private var chatTableView: UITableView!
     
-    @IBOutlet var viewWrappedMessageTextField: UIView!
-    @IBOutlet var messageTextField: UITextField!
+    @IBOutlet private var viewWrappedMessageTextField: UIView!
+    @IBOutlet private var messageTextField: UITextField!
     var chatRoom: ChatRoom?
     
     

@@ -10,10 +10,10 @@ import UIKit
 final class TravelCollectionViewCell: UICollectionViewCell {
     static let identifier = "TravelCollectionViewCell"
 
-    @IBOutlet var profileImageView: UIImageView!
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
-    @IBOutlet var messageLabel: UILabel!
+    @IBOutlet private var profileImageView: UIImageView!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var dateLabel: UILabel!
+    @IBOutlet private var messageLabel: UILabel!
     
     
     
