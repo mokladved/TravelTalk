@@ -142,6 +142,7 @@
         
         
         @IBAction func keyboardDismiss(_ sender: UITapGestureRecognizer) {
+            view.endEditing(true)
         }
         
         @IBAction func textFieldDidEndOnExit(_ sender: UITextField) {
