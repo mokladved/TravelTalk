@@ -99,4 +99,10 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
     private func configureEnterButtonUI() {
         enterBUTTON.configuration = .travelStyle(image: UIImage(systemName: "paperplane"))
     }
+    
+    @IBAction func keyboardDismiss(_ sender: UITapGestureRecognizer) {
+    }
+    
+    
+    
 }
