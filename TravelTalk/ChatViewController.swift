@@ -24,7 +24,7 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
         chatTableView.delegate = self
         chatTableView.dataSource = self
         registerCell()
-        chatTableView.rowHeight = 100
+        chatTableView.rowHeight = UITableView.automaticDimension
         configureTableViewUI()
         configureNavbarUI()
         configureViewWrappedMessageTextFieldUI()
