@@ -97,9 +97,6 @@
                             <constraint firstItem="Ce1-Qb-d7A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="snV-UK-Ye9"/>
                             <constraint firstItem="Loi-ca-Oy3" firstAttribute="trailing" secondItem="Ce1-Qb-d7A" secondAttribute="trailing" id="tJ0-MC-nS3"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="KZq-xo-8Wk" appends="YES" id="3Ax-PV-80P"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="mop-fb-qoD"/>
                     <navigationItem key="navigationItem" id="sGY-5K-T76">
@@ -114,11 +111,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="KZq-xo-8Wk">
-                    <connections>
-                        <action selector="keyboardDismiss:" destination="BYZ-38-t0r" id="7U2-3f-nph"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="KZq-xo-8Wk"/>
             </objects>
             <point key="canvasLocation" x="365.64885496183206" y="240.84507042253523"/>
         </scene>
