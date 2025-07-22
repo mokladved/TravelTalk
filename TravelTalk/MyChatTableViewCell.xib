@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PNr-a7-jA0">
-                        <rect key="frame" x="166" y="8" width="58" height="36.333333333333336"/>
+                        <rect key="frame" x="166" y="16.000000000000004" width="58" height="36.333333333333343"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crH-8z-OCW">
                                 <rect key="frame" x="8" y="7.9999999999999982" width="42" height="20.333333333333329"/>
@@ -36,7 +36,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tve-4h-LsH">
-                        <rect key="frame" x="103" y="23.333333333333329" width="55" height="21"/>
+                        <rect key="frame" x="103" y="31.333333333333329" width="55" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="55" id="2ou-Ft-2jY"/>
                         </constraints>
@@ -48,7 +48,7 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="PNr-a7-jA0" secondAttribute="trailing" constant="8" id="2cP-FV-Emi"/>
                     <constraint firstItem="tve-4h-LsH" firstAttribute="bottom" secondItem="PNr-a7-jA0" secondAttribute="bottom" id="GrK-wu-mvE"/>
-                    <constraint firstItem="PNr-a7-jA0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="NzT-cJ-YSu"/>
+                    <constraint firstItem="PNr-a7-jA0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="NzT-cJ-YSu"/>
                     <constraint firstItem="PNr-a7-jA0" firstAttribute="leading" secondItem="tve-4h-LsH" secondAttribute="trailing" constant="8" id="TPW-mg-Q5V"/>
                     <constraint firstItem="tve-4h-LsH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="50" id="qvm-Ly-oWS"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="PNr-a7-jA0" secondAttribute="bottom" constant="8" id="zmp-i5-MFV"/>

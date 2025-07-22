@@ -13,12 +13,12 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="74" id="KGk-i7-Jjw" customClass="YourChatTableViewCell" customModule="TravelTalk" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yLG-TO-IAl">
-                        <rect key="frame" x="8" y="8" width="35" height="35"/>
+                        <rect key="frame" x="8" y="16" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="Xdv-Af-fbx"/>
                             <constraint firstAttribute="width" constant="35" id="bnv-A8-1wH"/>
@@ -26,7 +26,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMj-Og-rfQ">
-                        <rect key="frame" x="51" y="8" width="42" height="21"/>
+                        <rect key="frame" x="51" y="16" width="42" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Ha1-5b-5dq"/>
                         </constraints>
@@ -35,10 +35,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfc-uE-ycF">
-                        <rect key="frame" x="51" y="37" width="52" height="32"/>
+                        <rect key="frame" x="51" y="45" width="52" height="31"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7z-LO-HTz">
-                                <rect key="frame" x="5" y="5" width="42" height="22"/>
+                                <rect key="frame" x="5" y="5" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0W-mV-u8B">
-                        <rect key="frame" x="111" y="48" width="55" height="21"/>
+                        <rect key="frame" x="111" y="55" width="55" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="55" id="fRQ-y5-MNm"/>
                         </constraints>
@@ -73,7 +73,7 @@
                     <constraint firstItem="XMj-Og-rfQ" firstAttribute="top" secondItem="yLG-TO-IAl" secondAttribute="top" id="Wkv-NW-2ld"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="D0W-mV-u8B" secondAttribute="trailing" constant="50" id="c1Q-hc-Hnq"/>
                     <constraint firstItem="D0W-mV-u8B" firstAttribute="leading" secondItem="cfc-uE-ycF" secondAttribute="trailing" constant="8" id="da9-vf-m8u"/>
-                    <constraint firstItem="yLG-TO-IAl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="fO5-cs-kZb"/>
+                    <constraint firstItem="yLG-TO-IAl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="fO5-cs-kZb"/>
                     <constraint firstItem="cfc-uE-ycF" firstAttribute="top" secondItem="XMj-Og-rfQ" secondAttribute="bottom" constant="8" id="kcY-Mo-25q"/>
                 </constraints>
             </tableViewCellContentView>
