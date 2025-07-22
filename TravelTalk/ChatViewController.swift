@@ -7,22 +7,23 @@
 
 import UIKit
 
-final class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
     static let identifier = "ChatViewController"
 
     @IBOutlet private var enterBUTTON: UIButton!
     @IBOutlet private var chatTableView: UITableView!
     
-    @IBOutlet private var viewWrappedMessageTextField: UIView!
-    @IBOutlet private var messageTextField: UITextField!
+    @IBOutlet var placeholderLabel: UILabel!
+    @IBOutlet var messageTextView: UITextView!
+    @IBOutlet private var viewWrappedMessageTextView: UIView!
     var chatRoom: ChatRoom?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        messageTextView.delegate = self
         chatTableView.delegate = self
         chatTableView.dataSource = self
         registerCell()
@@ -30,8 +31,9 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
         configureTableViewUI()
         configureNavbarUI()
         configureViewWrappedMessageTextFieldUI()
-        configureMessageTextFieldUI()
+        configurePlaceholderLabelUI()
         configureEnterButtonUI()
+        configureTextViewUI()
         
     }
     
@@ -40,12 +42,10 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     private func moveLastCell() {
-        guard let chatRoom = chatRoom else {
-            print("ddd")
+        guard let chatRoom = chatRoom else { 
             return
         }
         let lastIndexPath = IndexPath(row: chatRoom.chatList.count - 1, section: 0)
-        print(lastIndexPath)
         chatTableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
     }
 
@@ -98,19 +98,26 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     private func configureViewWrappedMessageTextFieldUI() {
-        viewWrappedMessageTextField.backgroundColor = .lightGrayBackgroundColor
-        viewWrappedMessageTextField.layer.cornerRadius = 5
-        viewWrappedMessageTextField.clipsToBounds = true
+        viewWrappedMessageTextView.backgroundColor = .lightGrayBackgroundColor
+        viewWrappedMessageTextView.layer.cornerRadius = 5
+        viewWrappedMessageTextView.clipsToBounds = true
         
     }
     
-    private func configureMessageTextFieldUI() {
+    
+    
+    private func configurePlaceholderLabelUI() {
         let placeholder = "메시지를 입력하세요"
-        let attribute: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.grayForegroundColor ]
-        
-        messageTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: attribute)
-        messageTextField.backgroundColor = .clear
-        messageTextField.borderStyle = .none
+        placeholderLabel.backgroundColor = .clear
+        placeholderLabel.text = placeholder
+        placeholderLabel.textColor = .darkGrayForegroundColor
+    }
+    
+    private func configureTextViewUI() {
+        messageTextView.textContainer.maximumNumberOfLines = 3
+        messageTextView.backgroundColor = .clear
+        messageTextView.textContainer.lineFragmentPadding = 0
+
     }
     
     private func configureEnterButtonUI() {
@@ -122,6 +129,10 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func textFieldDidEndOnExit(_ sender: UITextField) {
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        placeholderLabel.isHidden = !textView.text.isEmpty
     }
     
     
