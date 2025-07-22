@@ -19,11 +19,7 @@ final class YourChatTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        configureLabelUI()
-        configureMessageLabelUI()
-        configureViewWrappedMessageLabelUI()
-        configureDateLabelUI()
-        configureNameLabel()
+        configureUI()
     }
     
     override func layoutSubviews() {
@@ -31,6 +27,30 @@ final class YourChatTableViewCell: UITableViewCell {
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
             profileImageView.clipsToBounds = true
         
+    }
+    
+    private func configureNameLabel() {
+        nameLabel.font = .systemFont(ofSize: 13)
+    }
+    
+    private func configureProfileImageView() {
+        DispatchQueue.main.async {
+            self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width / 2
+        }
+        profileImageView.clipsToBounds = true
+    }
+    
+    
+}
+
+
+extension YourChatTableViewCell: UIConfigurable {
+    func configureUI() {
+        configureLabelUI()
+        configureMessageLabelUI()
+        configureViewWrappedMessageLabelUI()
+        configureDateLabelUI()
+        configureNameLabel()
     }
     
     private func configureLabelUI() {
@@ -54,23 +74,16 @@ final class YourChatTableViewCell: UITableViewCell {
         dateLabel.font = .systemFont(ofSize: 11)
     }
     
+}
+
+extension YourChatTableViewCell: DataConfigurable {
+    typealias Model = Chat
+    
     func configure(from data: Chat) {
         nameLabel.text = data.user.name
         profileImageView.image = UIImage(named: data.user.image)
         messageLabel.text = data.message
         dateLabel.text = data.formattedTime
     }
-    
-    private func configureNameLabel() {
-        nameLabel.font = .systemFont(ofSize: 13)
-    }
-    
-    private func configureProfileImageView() {
-        DispatchQueue.main.async {
-            self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width / 2
-        }
-        profileImageView.clipsToBounds = true
-    }
-    
     
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
+final class ChatViewController: UIViewController {
     
     static let identifier = "ChatViewController"
 
@@ -20,27 +20,22 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var chatRoom: ChatRoom?
     var travelViewController: TravelViewController?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        messageTextView.delegate = self
-        chatTableView.delegate = self
-        chatTableView.dataSource = self
         registerCell()
-        chatTableView.rowHeight = UITableView.automaticDimension
-        configureTableViewUI()
-        configureNavbarUI()
-        configureViewWrappedMessageTextFieldUI()
-        configurePlaceholderLabelUI()
-        configureEnterButtonUI()
-        configureTextViewUI()
-        
+        configureDelegate()
+        configureUI()
     }
     
     override func viewDidLayoutSubviews() {
         moveLastCell()
+    }
+    
+    private func configureDelegate() {
+        messageTextView.delegate = self
+        chatTableView.delegate = self
+        chatTableView.dataSource = self
     }
     
     private func moveLastCell() {
@@ -51,13 +46,6 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
         chatTableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
     }
 
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let chatRoom = chatRoom else {
-            return 0
-        }
-        return chatRoom.chatList.count
-    }
     private func registerCell() {
         let myXib = UINib(nibName: MyChatTableViewCell.identifier, bundle: nil)
         let yourXib = UINib(nibName: YourChatTableViewCell.identifier, bundle: nil)
@@ -66,7 +54,37 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
         chatTableView.register(yourXib, forCellReuseIdentifier: YourChatTableViewCell.identifier)
     }
     
+    @IBAction func keyboardDismiss(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     
+    @IBAction func textFieldDidEndOnExit(_ sender: UITextField) {
+    }
+    
+    @IBAction private func EnterButtonTapped(_ sender: UIButton) {
+        guard let text = messageTextView.text, !text.trimmingCharacters(in: .whitespaces).isEmpty else { return }
+                
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let now = formatter.string(from: Date())
+        let newChat = Chat(user: ChatList.me, date: now, message: text)
+
+        chatRoom?.chatList.append(newChat)
+                
+        chatTableView.reloadData()
+        moveLastCell()
+        
+        if let travelVC = travelViewController,
+            let newRoom = self.chatRoom {
+            travelVC.updateChatRoom(newData: newRoom)
+        }
+           
+        messageTextView.text = ""
+        textViewDidChange(messageTextView)
+    }
+}
+
+extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
         guard let chat = chatRoom?.chatList[indexPath.row] else {
@@ -82,6 +100,32 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.configure(from: chat)
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let chatRoom = chatRoom else {
+            return 0
+        }
+        return chatRoom.chatList.count
+    }
+}
+
+
+extension ChatViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        placeholderLabel.isHidden = !textView.text.isEmpty
+    }
+}
+
+extension ChatViewController: UIConfigurable {
+    func configureUI() {
+        chatTableView.rowHeight = UITableView.automaticDimension
+        configureTableViewUI()
+        configureNavbarUI()
+        configureViewWrappedMessageTextFieldUI()
+        configurePlaceholderLabelUI()
+        configureEnterButtonUI()
+        configureTextViewUI()
     }
     
     private func configureTableViewUI() {
@@ -103,10 +147,7 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
         viewWrappedMessageTextView.backgroundColor = .lightGrayBackgroundColor
         viewWrappedMessageTextView.layer.cornerRadius = 5
         viewWrappedMessageTextView.clipsToBounds = true
-        
     }
-    
-    
     
     private func configurePlaceholderLabelUI() {
         let placeholder = "메시지를 입력하세요"
@@ -118,43 +159,9 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
     private func configureTextViewUI() {
         messageTextView.backgroundColor = .clear
         messageTextView.textContainer.lineFragmentPadding = 0
-
     }
     
     private func configureEnterButtonUI() {
         enterBUTTON.configuration = .travelStyle(image: UIImage(systemName: "paperplane"))
     }
-    
-    @IBAction func keyboardDismiss(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
-    
-    @IBAction func textFieldDidEndOnExit(_ sender: UITextField) {
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        placeholderLabel.isHidden = !textView.text.isEmpty
-    }
-    @IBAction private func EnterButtonTapped(_ sender: UIButton) {
-        guard let text = messageTextView.text, !text.trimmingCharacters(in: .whitespaces).isEmpty else { return }
-                
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        let now = formatter.string(from: Date())
-        let newChat = Chat(user: ChatList.me, date: now, message: text)
-
-        chatRoom?.chatList.append(newChat) // 자신의 데이터(복사본)만 수정합니다.
-                
-        chatTableView.reloadData()
-        moveLastCell()
-        
-        if let travelVC = travelViewController,
-            let newRoom = self.chatRoom {
-            travelVC.updateChatRoom(newData: newRoom)
-        }
-           
-        messageTextView.text = ""
-        textViewDidChange(messageTextView)
-    }
-    
 }

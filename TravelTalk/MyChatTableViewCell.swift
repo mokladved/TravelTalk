@@ -18,15 +18,15 @@ class MyChatTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        configureUI()
+    }
+}
+
+extension MyChatTableViewCell: UIConfigurable {
+    func configureUI() {
         configureViewWrappedMesageLabelUI()
         configureMessageLabelUI()
         configureDateLabelUI()
-        
-    }
-    
-    func configure(from data: Chat) {
-        dateLabel.text = data.formattedTime
-        messageLabel.text = data.message
     }
     
     private func configureViewWrappedMesageLabelUI() {
@@ -45,5 +45,14 @@ class MyChatTableViewCell: UITableViewCell {
     private func configureDateLabelUI() {
         dateLabel.font = .systemFont(ofSize: 11)
         dateLabel.textColor = .darkGrayForegroundColor
+    }
+}
+
+extension MyChatTableViewCell: DataConfigurable {
+    typealias Model = Chat
+    
+    func configure(from data: Chat) {
+        dateLabel.text = data.formattedTime
+        messageLabel.text = data.message
     }
 }
