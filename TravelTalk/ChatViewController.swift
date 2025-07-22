@@ -17,8 +17,10 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet var placeholderLabel: UILabel!
     @IBOutlet var messageTextView: UITextView!
     @IBOutlet private var viewWrappedMessageTextView: UIView!
-    var chatRoom: ChatRoom?
     
+    var chatRoom: ChatRoom?
+    var travelViewController: TravelViewController?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,7 +116,6 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     private func configureTextViewUI() {
-        messageTextView.textContainer.maximumNumberOfLines = 3
         messageTextView.backgroundColor = .clear
         messageTextView.textContainer.lineFragmentPadding = 0
 
@@ -134,6 +135,26 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
     func textViewDidChange(_ textView: UITextView) {
         placeholderLabel.isHidden = !textView.text.isEmpty
     }
-    
+    @IBAction private func EnterButtonTapped(_ sender: UIButton) {
+        guard let text = messageTextView.text, !text.trimmingCharacters(in: .whitespaces).isEmpty else { return }
+                
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let now = formatter.string(from: Date())
+        let newChat = Chat(user: ChatList.me, date: now, message: text)
+
+        chatRoom?.chatList.append(newChat) // 자신의 데이터(복사본)만 수정합니다.
+                
+        chatTableView.reloadData()
+        moveLastCell()
+        
+        if let travelVC = travelViewController,
+            let newRoom = self.chatRoom {
+            travelVC.updateChatRoom(newData: newRoom)
+        }
+           
+        messageTextView.text = ""
+        textViewDidChange(messageTextView)
+    }
     
 }

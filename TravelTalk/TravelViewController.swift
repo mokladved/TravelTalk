@@ -133,12 +133,24 @@
             let chatVC = storyboard.instantiateViewController(withIdentifier: ChatViewController.identifier) as! ChatViewController
                 
             chatVC.chatRoom = chatRoom
+            
+            chatVC.travelViewController = self
             navigationController?.pushViewController(chatVC, animated: true)
         }
         
         private func configureBackButtonTitle() {
             navigationItem.backButtonTitle = ""
         }
+        
+        func updateChatRoom(newData: ChatRoom) {
+            if let index = filteredChatLists.firstIndex(where: { $0.chatroomId == newData.chatroomId }) {
+                filteredChatLists[index] = newData
+                travelCollectionView.reloadData()
+            }
+        }
+        
+        
+        
         
         @IBAction func textFieldDidEndOnExit(_ sender: UITextField) {
         }
