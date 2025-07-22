@@ -21,6 +21,8 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
         chatTableView.delegate = self
         chatTableView.dataSource = self
         registerCell()
@@ -30,6 +32,21 @@ final class ChatViewController: UIViewController, UITableViewDelegate, UITableVi
         configureViewWrappedMessageTextFieldUI()
         configureMessageTextFieldUI()
         configureEnterButtonUI()
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        moveLastCell()
+    }
+    
+    private func moveLastCell() {
+        guard let chatRoom = chatRoom else {
+            print("ddd")
+            return
+        }
+        let lastIndexPath = IndexPath(row: chatRoom.chatList.count - 1, section: 0)
+        print(lastIndexPath)
+        chatTableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
     }
 
 
